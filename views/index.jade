@@ -1,5 +1,13 @@
-extends layout
-
-block content
-  h1= title
-  p Welcome to #{title}
+!!! 5
+html(lang="ja")
+  head
+    title node.js sample app
+  body
+    h1 node.js sample app
+    - if (session.user_profile)
+      p= "Welcome, " + session.user_profile.screen_name
+      p
+        a(href="/signout") Sign out
+    - else
+      p
+        a(href="/auth/twitter") Sign in with twitter
